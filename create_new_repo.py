@@ -9,6 +9,7 @@ import gen
 
 options = webdriver.ChromeOptions()
 options.add_argument("start-maximized")
+#options.add_argument('headless') #uncomment if u want no gui feedback.
 options.add_experimental_option("excludeSwitches",["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
 
