@@ -36,4 +36,4 @@ def gen_file():
         with open(name,'w') as f:
             f.write(content)
 
-gen_file()
+        return name
