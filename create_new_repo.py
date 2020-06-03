@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 import time
 import gen
+import get_code_gmail
 
 options = webdriver.ChromeOptions()
 options.add_argument("start-maximized")
@@ -34,6 +35,20 @@ pw.send_keys(password)
 
 time.sleep(1)
 web.find_element_by_xpath('/html/body/div[3]/main/div/form/div[4]/input[9]').click()
+
+while(web.current_url=='https://github.com/sessions/verified-device'):
+
+    time.sleep(3)
+
+    try:
+        code = get_code_gmail.main()
+        web.find_element_by_id('otp').send_keys(code)
+        web.find_element_by_xpath('/html/body/div[3]/main/div/div[3]/form/button').click()
+
+    except:
+
+        web.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/button').click()
+
 
 time.sleep(2)
 web.find_element_by_xpath('/html/body/div[4]/div/aside[1]/div[2]/div[2]/div/h2/a').click()
