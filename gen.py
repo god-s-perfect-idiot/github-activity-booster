@@ -1,4 +1,5 @@
 import random
+from essential_generators import DocumentGenerator
 
 def gen():
     con = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','x']
@@ -23,3 +24,16 @@ def gen():
                 wd += vow[cv]
 
     return wd
+
+def gen_file():
+
+        g = DocumentGenerator()
+        content = g.paragraph()
+        a = ['py','java','c','cs','js','sh']
+        s = random.randint(0,5)
+        c = gen()
+        name = c+"."+a[s]
+        with open(name,'w') as f:
+            f.write(content)
+
+gen_file()
